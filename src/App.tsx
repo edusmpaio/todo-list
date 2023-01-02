@@ -37,10 +37,20 @@ function App() {
     setTasks(newTasks);
   }
 
+  function deleteTaskById(taskId: string) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+
+    setTasks(newTasks);
+  }
+
   return (
     <>
       <Header addTask={addTask} />
-      <Tasks tasks={tasks} completeTaskById={completeTaskById} />
+      <Tasks
+        tasks={tasks}
+        completeTaskById={completeTaskById}
+        deleteTaskById={deleteTaskById}
+      />
     </>
   );
 }

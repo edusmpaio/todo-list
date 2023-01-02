@@ -8,11 +8,16 @@ import styles from "./task.module.css";
 type taskProps = {
   task: taskType;
   completeTaskById: (taskId: string) => void;
+  deleteTaskById: (taskId: string) => void;
 };
 
-export function Task({ task, completeTaskById }: taskProps) {
+export function Task({ task, completeTaskById, deleteTaskById }: taskProps) {
   function onComplete() {
     completeTaskById(task.id);
+  }
+
+  function onDelete() {
+    deleteTaskById(task.id);
   }
 
   return (
@@ -21,7 +26,7 @@ export function Task({ task, completeTaskById }: taskProps) {
         {task.isCompleted ? <img src={checkIcon} alt="check" /> : <div />}
       </button>
       <p className={task.isCompleted ? styles.completed : ""}>{task.title}</p>
-      <button className={styles.deleteButton}>
+      <button onClick={onDelete} className={styles.deleteButton}>
         <HiOutlineTrash size={20} />
       </button>
     </div>

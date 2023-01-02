@@ -6,9 +6,10 @@ import styles from "./tasks.module.css";
 type tasksProps = {
   tasks: taskType[];
   completeTaskById: (taskId: string) => void;
+  deleteTaskById: (taskId: string) => void;
 };
 
-export function Tasks({ tasks, completeTaskById }: tasksProps) {
+export function Tasks({ tasks, completeTaskById, deleteTaskById }: tasksProps) {
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
 
@@ -29,7 +30,12 @@ export function Tasks({ tasks, completeTaskById }: tasksProps) {
       </header>
       <div className={styles.taskList}>
         {tasks.map((task) => (
-          <Task key={task.id} task={task} completeTaskById={completeTaskById} />
+          <Task
+            key={task.id}
+            task={task}
+            completeTaskById={completeTaskById}
+            deleteTaskById={deleteTaskById}
+          />
         ))}
       </div>
     </section>
