@@ -7,12 +7,17 @@ import styles from "./task.module.css";
 
 type taskProps = {
   task: taskType;
+  completeTaskById: (taskId: string) => void;
 };
 
-export function Task({ task }: taskProps) {
+export function Task({ task, completeTaskById }: taskProps) {
+  function onComplete() {
+    completeTaskById(task.id);
+  }
+
   return (
     <div className={styles.task}>
-      <button className={styles.checkButton}>
+      <button onClick={onComplete} className={styles.checkButton}>
         {task.isCompleted ? <img src={checkIcon} alt="check" /> : <div />}
       </button>
       <p className={task.isCompleted ? styles.completed : ""}>{task.title}</p>

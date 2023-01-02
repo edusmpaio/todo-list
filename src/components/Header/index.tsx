@@ -1,7 +1,8 @@
 import { useState, FormEvent } from "react";
-import { AiOutlinePlusCircle } from "react-icons/ai";
 
+import { AiOutlinePlusCircle } from "react-icons/ai";
 import todoLogo from "../../assets/logo.svg";
+
 import styles from "./header.module.css";
 
 type headerProps = {
@@ -14,7 +15,8 @@ export function Header({ addTask }: headerProps) {
   function handleNewTaskAddition(e: FormEvent) {
     e.preventDefault();
 
-    addTask(title);
+    if (title !== "") addTask(title);
+
     setTitle("");
   }
 

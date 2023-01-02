@@ -25,10 +25,22 @@ function App() {
     ]);
   }
 
+  function completeTaskById(taskId: string) {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, isCompleted: !task.isCompleted };
+      }
+
+      return task;
+    });
+
+    setTasks(newTasks);
+  }
+
   return (
     <>
       <Header addTask={addTask} />
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} completeTaskById={completeTaskById} />
     </>
   );
 }
