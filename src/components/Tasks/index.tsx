@@ -1,6 +1,8 @@
 import { Task } from "../Task";
 import { taskType } from "../../App";
 
+import { TbClipboardText } from "react-icons/tb";
+
 import styles from "./tasks.module.css";
 
 type tasksProps = {
@@ -37,6 +39,14 @@ export function Tasks({ tasks, completeTaskById, deleteTaskById }: tasksProps) {
             deleteTaskById={deleteTaskById}
           />
         ))}
+
+        {totalTasks <= 0 && (
+          <section className={styles.empty}>
+            <TbClipboardText size={60} />
+            <p>Você ainda não tem tarefas cadastradas</p>
+            <span>Crie tarefas e organize seus itens a fazer</span>
+          </section>
+        )}
       </div>
     </section>
   );
