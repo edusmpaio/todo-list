@@ -9,6 +9,15 @@
   margin-bottom: 9.2rem;
 }
 
+.header .logo {
+  font-size: 4rem;
+  font-weight: 900;
+  background-image: linear-gradient(227.23deg, var(--blue), var(--purple-dark));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0);
+}
+
 .header form {
   max-width: 73.6rem;
   width: 100%;

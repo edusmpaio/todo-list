@@ -59,3 +59,9 @@
   color: var(--gray-400);
   margin-bottom: 1.6rem;
 }
+
+@media (max-width: 415px) {
+  .empty {
+    font-size: 1.4rem;
+  }
+}
