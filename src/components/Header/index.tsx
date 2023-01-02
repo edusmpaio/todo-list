@@ -31,7 +31,7 @@ export function Header({ addTask }: headerProps) {
           placeholder="Adicione uma nova tarefa"
         />
         <button type="submit">
-          Criar
+          <span>Criar</span>
           <AiOutlinePlusCircle size={20} />
         </button>
       </form>

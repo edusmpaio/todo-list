@@ -60,3 +60,22 @@
 .header form button:hover {
   background: var(--blue);
 }
+
+@media (max-width: 415px) {
+  .header form {
+    gap: 0;
+  }
+
+  .header form input {
+    border-radius: 0.8rem 0 0 0.8rem;
+    border-right: none;
+  }
+
+  .header form button {
+    border-radius: 0 0.8rem 0.8rem 0;
+  }
+
+  .header form button span {
+    display: none;
+  }
+}
