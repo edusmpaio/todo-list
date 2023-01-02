@@ -1,5 +1,13 @@
+import { Header } from "./components/Header";
+import { Tasks } from "./components/Tasks";
+
 function App() {
-  return <h1>A</h1>;
+  return (
+    <>
+      <Header />
+      <Tasks />
+    </>
+  );
 }
 
 export default App;
