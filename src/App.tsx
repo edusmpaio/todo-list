@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { v4 as uuidv4 } from "uuid";
 
 import { Header } from "./components/Header";
 import { Tasks } from "./components/Tasks";
+
+const LOCAL_STORAGE_KEY = "todo:savedTasks";
 
 export type taskType = {
   id: string;
@@ -14,8 +16,25 @@ export type taskType = {
 function App() {
   const [tasks, setTasks] = useState<taskType[]>([]);
 
+  function setTasksAndSave(newTasks: taskType[]) {
+    setTasks(newTasks);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
+  }
+
+  function loadSavedTasks() {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+
+    if (saved) {
+      setTasks(JSON.parse(saved));
+    }
+  }
+
+  useEffect(() => {
+    loadSavedTasks();
+  }, []);
+
   function addTask(taskTitle: string) {
-    setTasks([
+    setTasksAndSave([
       ...tasks,
       {
         id: uuidv4(),
@@ -34,13 +53,13 @@ function App() {
       return task;
     });
 
-    setTasks(newTasks);
+    setTasksAndSave(newTasks);
   }
 
   function deleteTaskById(taskId: string) {
     const newTasks = tasks.filter((task) => task.id !== taskId);
 
-    setTasks(newTasks);
+    setTasksAndSave(newTasks);
   }
 
   return (
