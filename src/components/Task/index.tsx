@@ -1,17 +1,17 @@
-import { taskType } from "../../App";
+import { TaskType } from "../../App";
 
 import { HiOutlineTrash } from "react-icons/hi";
 import checkIcon from "../../assets/check-icon.svg";
 
 import styles from "./task.module.css";
 
-type taskProps = {
-  task: taskType;
+type TaskProps = {
+  task: TaskType;
   completeTaskById: (taskId: string) => void;
   deleteTaskById: (taskId: string) => void;
 };
 
-export function Task({ task, completeTaskById, deleteTaskById }: taskProps) {
+export function Task({ task, completeTaskById, deleteTaskById }: TaskProps) {
   function onComplete() {
     completeTaskById(task.id);
   }

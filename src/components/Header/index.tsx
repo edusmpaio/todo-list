@@ -4,11 +4,11 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 
 import styles from "./header.module.css";
 
-type headerProps = {
+type HeaderProps = {
   addTask: (taskTitle: string) => void;
 };
 
-export function Header({ addTask }: headerProps) {
+export function Header({ addTask }: HeaderProps) {
   const [title, setTitle] = useState("");
 
   function handleNewTaskAddition(e: FormEvent) {

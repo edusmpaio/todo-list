@@ -1,17 +1,17 @@
 import { Task } from "../Task";
-import { taskType } from "../../App";
+import { TaskType } from "../../App";
 
 import { TbClipboardText } from "react-icons/tb";
 
 import styles from "./tasks.module.css";
 
-type tasksProps = {
-  tasks: taskType[];
+type TasksProps = {
+  tasks: TaskType[];
   completeTaskById: (taskId: string) => void;
   deleteTaskById: (taskId: string) => void;
 };
 
-export function Tasks({ tasks, completeTaskById, deleteTaskById }: tasksProps) {
+export function Tasks({ tasks, completeTaskById, deleteTaskById }: TasksProps) {
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
 

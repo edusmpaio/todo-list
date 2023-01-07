@@ -7,16 +7,16 @@ import { Tasks } from "./components/Tasks";
 
 const LOCAL_STORAGE_KEY = "todo:savedTasks";
 
-export type taskType = {
+export type TaskType = {
   id: string;
   title: string;
   isCompleted: boolean;
 };
 
 function App() {
-  const [tasks, setTasks] = useState<taskType[]>([]);
+  const [tasks, setTasks] = useState<TaskType[]>([]);
 
-  function setTasksAndSave(newTasks: taskType[]) {
+  function setTasksAndSave(newTasks: TaskType[]) {
     setTasks(newTasks);
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
   }
